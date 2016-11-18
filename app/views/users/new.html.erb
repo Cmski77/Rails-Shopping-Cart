@@ -1,0 +1,17 @@
+<% provide(:title,'Register')%>
+<h1>Register An Account</h1>
+
+
+<%=form_for(@user) do |f| %>
+<%= render 'shared/error_messages' %> <!-- Error messages rendered by the partial will be placed here -->
+<%=f.label :name%><br>
+<%=f.text_field :name%><br>
+<%=f.label :email%><br>
+<%=f.email_field :email%><br>
+<%=f.label :password%><br>
+<%=f.password_field :password%><br> <!--These colon words indicate the title -->
+<%=f.label :password_confirmation,"Confirm Password"%><br>
+<%=f.password_field :password_confirmation%><br>
+
+<%=f.submit "Create"%>
+<%end%>
