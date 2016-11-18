@@ -1,0 +1,4 @@
+<%provide(:title, @user.name)%>
+<h1>User Credentials</h1>
+<p>Work in progress, user needs more parameters and a successful login should redirect to a potential checkout page, rather than this page</p>
+ <p> Username: <%= @user.name %><br> User Email: <%=@user.email%><br> User Password Hash:<%=@user.password_digest%><br></p>

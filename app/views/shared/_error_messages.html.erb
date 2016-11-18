@@ -1,0 +1,10 @@
+<%if @user.errors.any? %>
+<div id="Error Description">
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %> <!--errors.full_messages is an object that has an array of any errors. -->
+      <li> <%=msg %> </li>
+      <%end%>
+ </ul>
+</div>
+
+<%end%>

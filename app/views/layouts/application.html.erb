@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FinalProjectGroup15</title>
+    <title><%= yield(:title)%> |  CS 416 Final Project </title>  <!--Common title for all static pages-->
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <%flash.each do |message_type,message| %>
+      <div><%= message %></div> <!--Additional Styling required later on -->
+    <%end%>
     <%= yield %>
   </body>
 </html>
