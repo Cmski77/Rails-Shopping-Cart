@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   post '/search', to: 'users#search'
 
 
-  post '/search', to: 'products#search‘
+  post '/search', to: 'products#search'
 
    post '/signup',  to: 'users#create'
    get    '/login',   to: 'sessions#new'
