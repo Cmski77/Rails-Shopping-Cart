@@ -34,12 +34,17 @@ module SessionsHelper
   end
 
   def log_out
+    clear
    forget(current_user)
    session.delete(:user_id)
+   @current_order = Order.new
+
    @current_user = nil
+
  end
 
   def forget(user)
+
    user.forget
    cookies.delete(:user_id)
    cookies.delete(:remember_token)
