@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyText
-  price: 1
-  stock: 1
+  name: MyString
+  price: 9.99
+  active: false
 
 two:
-  name: MyText
-  price: 1
-  stock: 1
+  name: MyString
+  price: 9.99
+  active: false

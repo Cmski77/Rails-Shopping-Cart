@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title)%> |  CS 416 Final Project </title>  <!--Common title for all static pages-->
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
-    <%= render 'layouts/header' %>
-  </br>
-  </br>
 
-    <%flash.each do |message_type,message| %>
-      <div><%= message %></div> <!--Additional Styling required later on -->
-    <%end%>
-    <%= yield %>
-    <%= render 'layouts/footer'%>
+  <body>
+    <body>
+      <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+
+    </div>
+  </body>
   </body>
 </html>
