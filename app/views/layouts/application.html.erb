@@ -9,9 +9,14 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
+  </br>
+  </br>
+
     <%flash.each do |message_type,message| %>
       <div><%= message %></div> <!--Additional Styling required later on -->
     <%end%>
     <%= yield %>
+    <%= render 'layouts/footer'%>
   </body>
 </html>

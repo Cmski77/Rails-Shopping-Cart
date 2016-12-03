@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :products
   resources :transactions
-  root 'static_pages#login'
+  root 'sessions#new'
   get '/register', to: 'users#new'
   get '/login',    to: 'sessions#new' #Page for a new session
   post '/login',    to: 'sessions#create' #Create a new session
