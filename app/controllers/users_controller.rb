@@ -23,13 +23,9 @@ class UsersController < ApplicationController
 
 
   def search
-    name = params[:search] + '%'
-    @users = User.where(['name LIKE ?', name])
-      respond_to do |format|
-        format.html
-        format.js
-        end
-  end
+  name = params[:search] + '%'
+  @users = User.where(['name LIKE ?', name])
+end
 
   def edit
     @user = User.find(params[:id])

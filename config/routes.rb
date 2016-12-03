@@ -24,8 +24,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/search', to: 'users#search'
 
-
-  post '/search', to: 'products#search'
+  post '/search2', to: 'products#search2'
 
    post '/signup',  to: 'users#create'
    get    '/login',   to: 'sessions#new'
