@@ -15,6 +15,12 @@
   <% @order_items.each do |order_item| %>
     <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
   <% end %>
-  <p class="text-center"><%= link_to "Check Out", carts_checkout_path, class: 'btn btn-danger' %>  </p>
+
+
+  <% if logged_in? %>
+      <p class="text-center"><%= link_to "Check Out", carts_checkout_path, class: 'btn btn-lg btn-primary' %>  </p>
+    <% else %>
+      <p class="text-center"><%= link_to "Login to checkout!", login_path, class: "btn btn-lg btn-primary" %></p>
+      <% end %>
 
 <% end %>
