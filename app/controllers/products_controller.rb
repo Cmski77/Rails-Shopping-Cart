@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_action :admin_user,     only: [:new, :create, :destroy]
   def new
     @product = Product.new
   end
