@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'order_items/destroy'
 
   get 'carts/show'
+  get 'carts/checkout'
+
   get 'products/index'
   get 'sessions/new'
   get 'users/new'
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
    resources :products, only: [:update, :index, :create, :new, :destroy, :edit]
-   resource :cart, only: [:show]
+   resource :cart, only: [:show, :checkout]
    resources :order_items, only: [:create, :update, :destroy]
 
   resources :users
