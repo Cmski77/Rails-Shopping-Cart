@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
     before_action :correct_user,   only: [:edit, :update]
-    before_action :admin_user,     only: :destroy
+    before_action :admin_user,     only: [:destroy, :show]
 
 
     def destroy
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+      @user = User.find(params[:id])
   end
 
   def index
@@ -82,7 +82,10 @@ class UsersController < ApplicationController
     end
 end
 
-def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
+    def admin_user
+        if !(current_user.try(:admin?))
+          flash[:danger] = "You are not authorized to do that."
+          redirect_to(root_url)
+        end
+    end
 end
