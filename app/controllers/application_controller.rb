@@ -9,9 +9,6 @@ class ApplicationController < ActionController::Base
     @order_items = @order.order_items.all
     @order_items.each do |o|
       o.destroy
-    #
-    # Order_item.find_each do |o|
-    #   o.destroy
     end
   end
 
@@ -21,5 +18,22 @@ class ApplicationController < ActionController::Base
       else
         Order.new
       end
+    end
+
+
+    def current_user
+      if (user_id = session[:user_id])
+        @current_user ||= User.find_by(id: user_id)
+      elsif (user_id = cookies.signed[:user_id])
+        user = User.find_by(id: user_id)
+        if user && user.authenticated?(cookies[:remember_token])
+          log_in user
+          @current_user = user
+        end
+      end
+    end
+
+    def current_user?(user)
+      current_user && current_user == user
     end
   end

@@ -5,27 +5,27 @@ class UsersController < ApplicationController
 
 
     def destroy
-   User.find(params[:id]).destroy
-   flash[:success] = "User deleted"
-   redirect_to users_url
- end
-
-  def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-            # Handle a successful update.
-            flash[:success] = "Profile updated"
-            redirect_to @user
-    else
-      render 'edit'
+      User.find(params[:id]).destroy
+      flash[:success] = "User deleted"
+      redirect_to users_url
     end
-  end
+
+    def update
+      @user = User.find(params[:id])
+      if @user.update_attributes(user_params)
+              # Handle a successful update.
+              flash[:success] = "Profile updated"
+              redirect_to @user
+      else
+        render 'edit'
+      end
+    end
 
 
   def search
-  name = params[:search] + '%'
-  @users = User.where(['name LIKE ?', name])
-end
+    name = params[:search] + '%'
+    @users = User.where(['name LIKE ?', name])
+  end
 
   def edit
     @user = User.find(params[:id])
