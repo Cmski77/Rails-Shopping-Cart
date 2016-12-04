@@ -1,17 +1,41 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  root 'static_pages#home'
 
-  resources :products
-  resources :transactions
-  root 'sessions#new'
-  get '/register', to: 'users#new'
-  get '/login',    to: 'sessions#new' #Page for a new session
-  post '/login',    to: 'sessions#create' #Create a new session
-  delete '/logout', to: 'sessions#destroy' #delete the session
-  get '/products',   to: 'products#index'
+  get 'products/create'
+  get 'products/update'
+  get 'products/destroy'
+
+  get 'order_items/create'
+  get 'order_items/update'
+  get 'order_items/clear'
+  get 'order_items/destroy'
+
+  get 'carts/show'
+  get 'carts/checkout'
+
+  get 'products/index'
+  get 'sessions/new'
+  get 'users/new'
+
+  get  '/help', to: 'static_pages#help'
+  get  '/about',   to: 'static_pages#about'
+  get  '/contact', to: 'static_pages#contact'
+  get '/signup', to: 'users#new'
+  post '/search', to: 'users#search'
+
+  post '/search2', to: 'products#search2'
+  post '/signup',  to: 'users#create'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+
+   resources :products, only: [:update, :index, :create, :new, :destroy, :edit]
+   resource :cart, only: [:show, :checkout]
+   resources :order_items, only: [:create, :update, :destroy]
+
   resources :users
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 
 
 end

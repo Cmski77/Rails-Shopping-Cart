@@ -1,6 +1,11 @@
-<%provide(:title, @user.name)%>
-<h1>User Credentials</h1>
-<p>Work in progress, user may need more parameters, and yet to be decided where to redirect after a successful account creation</p>
-<p> Username: <%= @user.name %><br> User Email: <%=@user.email%><br> User Password Hash:<%=@user.password_digest%><br></p>
-
-<%=link_to "Click to get sent to the product scaffold's index", products_path%>
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
