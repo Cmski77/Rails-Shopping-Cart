@@ -14,7 +14,7 @@
 # end
 
 User.create!(name:  "adminuser",
-             email: "example@railstutorial.org",
+             email: "adminuser@adminuser.org",
              password:              "adminuser",
              password_confirmation: "adminuser",
              admin: true)
