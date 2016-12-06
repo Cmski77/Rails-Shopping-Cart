@@ -24,8 +24,8 @@ Product.create! id: 1, name: "Bananas", price: 1.49, active: true
 Product.create! id: 2, name: "Apples", price: 3.29, active: true
 Product.create! id: 3, name: "Milk", price: 2.99, active: true
 
-OrderStatus.delete_all
-OrderStatus.create! id: 1, name: "In Progress"
-OrderStatus.create! id: 2, name: "Placed"
-OrderStatus.create! id: 3, name: "Shipped"
-OrderStatus.create! id: 4, name: "Cancelled"
+# OrderStatus.delete_all
+# OrderStatus.create! id: 1, name: "In Progress"
+# OrderStatus.create! id: 2, name: "Placed"
+# OrderStatus.create! id: 3, name: "Shipped"
+# OrderStatus.create! id: 4, name: "Cancelled"

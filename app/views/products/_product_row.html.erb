@@ -28,7 +28,8 @@
             <%= f.submit "Add to Cart", class: "btn btn-primary" %>
 
             <% if current_user.try(:admin?) && !current_user?(@user)  %>
-            <%= link_to "Delete", product, { data: { confirm: "Are you sure you wish to delete the product '#{product.name}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
+            <%= link_to "Delete", product, { data: { confirm: "Are you sure you wish to delete the product '#{product.name}' from your listing? ;        # We still work on this function. We can delete the product from the database but removing a product from the listing would need to search then remove the same product from the cart too
+" }, method: :delete, remote: true, class: "btn btn-danger" } %>
             <%= link_to "Edit", edit_product_path(product), class: "btn btn-danger" %>
 
             <% end %>

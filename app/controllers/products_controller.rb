@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
      end
 
      def destroy
-       # Still work on that function because removing a product would need to remove products from all cart
+       # Still work on this function because removing a product would need to remove products from all cart
           # Product.find(params[:id]).destroy
           # flash[:success] = "Product deleted"
           # redirect_to products_index_url
